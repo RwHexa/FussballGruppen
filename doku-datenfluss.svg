@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 732" width="920" height="732" font-family="Segoe UI, system-ui, sans-serif">
+  <style>
+    .bg    { fill: #ffffff; }
+    .box   { fill: #ffffff; stroke: #c9c6c1; stroke-width: 1.5; rx: 7; }
+    .box-o { fill: #fdf1ea; stroke: #e85a2a; stroke-width: 2; rx: 8; }
+    .box-d { fill: #2b3a4a; stroke: #22303d; stroke-width: 1.5; rx: 8; }
+    .box-g { fill: #f4f3f1; stroke: #c9c6c1; stroke-width: 1.2; rx: 6; }
+    .box-a { fill: #eaf2fa; stroke: #2f6fad; stroke-width: 1.4; rx: 6; }
+    .box-b { fill: #eaf7f0; stroke: #2f8f5b; stroke-width: 1.4; rx: 6; }
+    .box-gold { fill: #fffdf5; stroke: #d4a017; stroke-width: 2; rx: 7; }
+    .box-dash { fill: #ffffff; stroke: #9aa7b4; stroke-width: 1.5; stroke-dasharray: 5 4; rx: 7; }
+    .t      { fill: #1a1a1a; font-size: 12px; }
+    .t-b    { fill: #1a1a1a; font-size: 12px; font-weight: 700; }
+    .t-s    { fill: #5a5a5a; font-size: 10px; }
+    .t-w    { fill: #ffffff; font-size: 12px; font-weight: 700; }
+    .t-ws   { fill: #9fb3c6; font-size: 10px; font-family: Consolas, Menlo, monospace; }
+    .t-o    { fill: #c94a1f; font-size: 11px; font-weight: 700; }
+    .t-code { font-family: Consolas, Menlo, monospace; font-size: 11px; fill: #1a1a1a; }
+    .t-codes{ font-family: Consolas, Menlo, monospace; font-size: 10px; fill: #5a5a5a; }
+    .t-h    { fill: #1a1a1a; font-size: 14px; font-weight: 700; }
+    .pfeil  { stroke: #e85a2a; stroke-width: 2; fill: none; marker-end: url(#spitze); }
+    .linie  { stroke: #e85a2a; stroke-width: 1.8; fill: none; marker-end: url(#spitze); }
+    .linie-g{ stroke: #9aa7b4; stroke-width: 1.5; fill: none; marker-end: url(#spitze-g); stroke-dasharray: 5 4; }
+  </style>
+
+  <defs>
+    <marker id="spitze" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e85a2a"/>
+    </marker>
+    <marker id="spitze-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa7b4"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="920" height="732"/>
+
+  <text class="t-h" x="20" y="26">Fussball Gruppen — Datenfluss und Turnierbaum</text>
+  <text class="t-s" x="20" y="43">Jede Seite spricht ausschliesslich mit dem Store. Gespeichert sind nur Mannschaften und Ergebnisse — Tabellen und Paarungen werden gerechnet.</text>
+
+  <!-- Seiten -->
+  <text class="t-o" x="20" y="72">SEITEN</text>
+
+  <g>
+    <rect class="box" x="20"  y="82" width="103" height="46"/>
+    <text class="t-b"     x="71"  y="101" text-anchor="middle">index</text>
+    <text class="t-codes" x="71"  y="117" text-anchor="middle">start.js</text>
+
+    <rect class="box" x="131" y="82" width="103" height="46"/>
+    <text class="t-b"     x="182" y="101" text-anchor="middle">mannschaften</text>
+    <text class="t-codes" x="182" y="117" text-anchor="middle">+ datentransfer</text>
+
+    <rect class="box" x="242" y="82" width="103" height="46"/>
+    <text class="t-b"     x="293" y="101" text-anchor="middle">spiele</text>
+    <text class="t-codes" x="293" y="117" text-anchor="middle">spiele.js</text>
+
+    <rect class="box-o" x="353" y="82" width="103" height="46"/>
+    <text class="t-b"     x="404" y="101" text-anchor="middle">akt. spiel</text>
+    <text class="t-codes" x="404" y="117" text-anchor="middle">aktspiel.js</text>
+
+    <rect class="box" x="464" y="82" width="103" height="46"/>
+    <text class="t-b"     x="515" y="101" text-anchor="middle">tabellen</text>
+    <text class="t-codes" x="515" y="117" text-anchor="middle">tabelle.js</text>
+
+    <rect class="box-o" x="575" y="82" width="103" height="46"/>
+    <text class="t-b"     x="626" y="101" text-anchor="middle">k.-o.-runde</text>
+    <text class="t-codes" x="626" y="117" text-anchor="middle">ko.js</text>
+
+    <rect class="box" x="686" y="82" width="103" height="46"/>
+    <text class="t-b"     x="737" y="101" text-anchor="middle">ergebnisse</text>
+    <text class="t-codes" x="737" y="117" text-anchor="middle">ergebnisse.js</text>
+
+    <rect class="box" x="797" y="82" width="103" height="46"/>
+    <text class="t-b"     x="848" y="101" text-anchor="middle">aushang</text>
+    <text class="t-codes" x="848" y="117" text-anchor="middle">+ datentransfer</text>
+  </g>
+
+  <!-- Pfeil Seiten -> Store -->
+  <path class="pfeil" d="M 300 132 L 300 168"/>
+  <text class="t-code"  x="314" y="146">getTabelle("A") · getKoRunde() · addSpiel() · setKoErgebnis() · getEndstand() …</text>
+  <text class="t-codes" x="314" y="161">zurueck: fertig gerechnete Objekte — keine Seite fasst localStorage selbst an</text>
+
+  <!-- Store -->
+  <rect class="box-o" x="20" y="176" width="880" height="296"/>
+  <text class="t-b" x="36" y="198">js/turnier-store.js — die einzige Datenschicht</text>
+  <text class="t-codes" x="36" y="213">IIFE, haengt genau ein Objekt an window: TurnierStore</text>
+
+  <!-- Lesekette -->
+  <text class="t-o" x="36" y="238">BEI JEDEM LESEN UND SCHREIBEN</text>
+  <g>
+    <rect class="box-g" x="36"  y="246" width="140" height="40"/>
+    <text class="t-code"  x="106" y="264" text-anchor="middle">JSON.parse</text>
+    <text class="t-codes" x="106" y="278" text-anchor="middle">aus localStorage</text>
+
+    <rect class="box-g" x="186" y="246" width="180" height="40"/>
+    <text class="t-code"  x="276" y="264" text-anchor="middle">bereinigeSpiele()</text>
+    <text class="t-codes" x="276" y="278" text-anchor="middle">nur innerhalb einer Gruppe</text>
+
+    <rect class="box-g" x="376" y="246" width="150" height="40"/>
+    <text class="t-code"  x="451" y="264" text-anchor="middle">bereinigeKo()</text>
+    <text class="t-codes" x="451" y="278" text-anchor="middle">Teams muessen es geben</text>
+
+    <rect class="box-g" x="536" y="246" width="348" height="40"/>
+    <text class="t-code"  x="710" y="264" text-anchor="middle">aktualisiereStatistikAusSpielen()</text>
+    <text class="t-codes" x="710" y="278" text-anchor="middle">setzt alles auf null und zaehlt Siege, Tore und Punkte neu</text>
+
+    <path class="pfeil" d="M 178 266 L 182 266"/>
+    <path class="pfeil" d="M 368 266 L 372 266"/>
+    <path class="pfeil" d="M 528 266 L 532 266"/>
+  </g>
+
+  <!-- Turnierbaum -->
+  <text class="t-o" x="36" y="308">DARAUS GERECHNET: DER TURNIERBAUM</text>
+
+  <g>
+    <!-- Gruppenplaetze -->
+    <rect class="box-a" x="40" y="316" width="100" height="26"/>
+    <text class="t-b" x="90" y="333" text-anchor="middle">1. Gruppe A</text>
+
+    <rect class="box-b" x="40" y="348" width="100" height="26"/>
+    <text class="t-b" x="90" y="365" text-anchor="middle">2. Gruppe B</text>
+
+    <rect class="box-b" x="40" y="388" width="100" height="26"/>
+    <text class="t-b" x="90" y="405" text-anchor="middle">1. Gruppe B</text>
+
+    <rect class="box-a" x="40" y="420" width="100" height="26"/>
+    <text class="t-b" x="90" y="437" text-anchor="middle">2. Gruppe A</text>
+
+    <!-- Halbfinals -->
+    <rect class="box" x="186" y="328" width="140" height="34"/>
+    <text class="t-b"     x="256" y="344" text-anchor="middle">Halbfinale 1</text>
+    <text class="t-codes" x="256" y="357" text-anchor="middle">ko.hf1</text>
+
+    <rect class="box" x="186" y="400" width="140" height="34"/>
+    <text class="t-b"     x="256" y="416" text-anchor="middle">Halbfinale 2</text>
+    <text class="t-codes" x="256" y="429" text-anchor="middle">ko.hf2</text>
+
+    <path class="linie" d="M 140 329 H 163 V 345 H 182"/>
+    <path class="linie" d="M 140 361 H 163 V 345 H 182"/>
+    <path class="linie" d="M 140 401 H 163 V 417 H 182"/>
+    <path class="linie" d="M 140 433 H 163 V 417 H 182"/>
+
+    <!-- Finale und Platz 3 -->
+    <rect class="box-gold" x="372" y="330" width="140" height="34"/>
+    <text class="t-b"     x="442" y="346" text-anchor="middle">Finale</text>
+    <text class="t-codes" x="442" y="359" text-anchor="middle">ko.finale</text>
+
+    <rect class="box" x="372" y="398" width="140" height="34"/>
+    <text class="t-b"     x="442" y="414" text-anchor="middle">Spiel um Platz 3</text>
+    <text class="t-codes" x="442" y="427" text-anchor="middle">ko.platz3</text>
+
+    <path class="linie"   d="M 326 338 H 348 V 341 H 368"/>
+    <path class="linie"   d="M 326 410 H 358 V 341 H 368"/>
+    <path class="linie-g" d="M 326 352 H 348 V 407 H 368"/>
+    <path class="linie-g" d="M 326 424 H 358 V 407 H 368"/>
+
+    <text class="t-o" x="334" y="322">Sieger</text>
+    <text class="t-s" x="330" y="448">gestrichelt: Verlierer</text>
+
+    <!-- Endstand -->
+    <rect class="box" x="558" y="340" width="150" height="66"/>
+    <text class="t-b"     x="633" y="360" text-anchor="middle">Endstand</text>
+    <text class="t-s"     x="633" y="377" text-anchor="middle">Platz 1 · 2 aus dem Finale</text>
+    <text class="t-s"     x="633" y="392" text-anchor="middle">Platz 3 · 4 aus Platz-3-Spiel</text>
+
+    <path class="linie" d="M 512 347 H 534 V 373 H 554"/>
+    <path class="linie" d="M 512 415 H 534 V 373 H 554"/>
+
+    <!-- Funktionskette -->
+    <text class="t-o"     x="728" y="322">NUR GERECHNET</text>
+    <text class="t-code"  x="728" y="342">getTabelle("A") / ("B")</text>
+    <text class="t-code"  x="728" y="358">getKoRunde()</text>
+    <text class="t-code"  x="728" y="374">koSieger() / koVerlierer()</text>
+    <text class="t-code"  x="728" y="390">getEndstand()</text>
+    <text class="t-s"     x="728" y="412">Stimmt eine gespeicherte Paarung</text>
+    <text class="t-s"     x="728" y="426">nicht mehr mit der gerechneten</text>
+    <text class="t-s"     x="728" y="440">ueberein, meldet getKoRunde()</text>
+    <text class="t-codes" x="728" y="454">passtNichtMehr: true</text>
+  </g>
+
+  <text class="t-s" x="36" y="464">Dieselbe Kette laeuft beim Schreiben noch einmal: erst bereinigen, dann neu rechnen, dann als JSON ablegen.</text>
+
+  <!-- Pfeile Store &lt;-&gt; Speicher -->
+  <path class="pfeil" d="M 400 474 L 400 508"/>
+  <path class="pfeil" d="M 330 508 L 330 474"/>
+  <text class="t-codes" x="414" y="495">JSON.stringify / JSON.parse</text>
+
+  <!-- localStorage -->
+  <rect class="box-d" x="20" y="516" width="640" height="134"/>
+  <text class="t-w"    x="36"  y="538">localStorage</text>
+  <text class="t-code" x="112" y="538" fill="#ffd9c9">"fgr-turnier-v1"</text>
+  <text class="t-ws" x="36" y="558">{ version: 1,</text>
+  <text class="t-ws" x="36" y="574">  meta:   { turnierName, ort, datum },</text>
+  <text class="t-ws" x="36" y="590">  teams:  [ { id, name, gruppe: "A" | "B" } ],</text>
+  <text class="t-ws" x="36" y="606">  spiele: [ { id, heimId, gastId, toreHeim, toreGast } ],</text>
+  <text class="t-ws" x="36" y="622">  ko:     { hf1, hf2, platz3, finale }   je null oder</text>
+  <text class="t-ws" x="36" y="638">          { heimId, gastId, toreHeim, toreGast, elfHeim, elfGast } }</text>
+
+  <!-- Nicht gespeichert -->
+  <rect class="box-dash" x="680" y="516" width="220" height="134"/>
+  <text class="t-b" x="790" y="538" text-anchor="middle">nicht gespeichert</text>
+  <text class="t-s" x="696" y="560">· Punkte und Platzierungen</text>
+  <text class="t-s" x="696" y="576">· die vier Paarungen</text>
+  <text class="t-s" x="696" y="592">· Sieger und Endstand</text>
+  <text class="t-code" x="696" y="614">const stand =</text>
+  <text class="t-code" x="696" y="629">  { heim: 0, gast: 0 }</text>
+  <text class="t-codes" x="696" y="643">lebt nur in aktspiel.js</text>
+
+  <!-- Kernaussage -->
+  <rect class="box" x="20" y="668" width="880" height="46" fill="#fdf1ea" stroke="#e85a2a"/>
+  <text class="t-b" x="36" y="688">Gespeichert sind nur Mannschaften (mit Gruppe), Gruppenergebnisse und die vier K.-o.-Ergebnisse.</text>
+  <text class="t-s" x="36" y="704">Tabellen, Halbfinal-Paarungen, Sieger und Endstand entstehen bei jedem Lesen neu — und koennen deshalb nicht veralten.</text>
+</svg>

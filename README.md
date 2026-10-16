@@ -125,6 +125,14 @@ Der tragende Gedanke: **Gespeichert werden nur Mannschaften (mit Gruppe), Gruppe
 
 Eine `.json`-Datei aus dem Vorgängerprojekt lässt sich hier öffnen: die Mannschaften werden reihum auf Gruppe A und B verteilt. Spiele, die dadurch über Gruppengrenzen gehen, kann dieses Programm nicht übernehmen — es meldet, wie viele das waren.
 
+## Dokumentation
+
+Eine ausführliche technische Dokumentation liegt im Projekt: **[FussballGruppen_Doku.md](FussballGruppen_Doku.md)**.
+
+Sie beschreibt den Turniermodus, den Aufbau der acht Seiten, das Datenmodell in `js/turnier-store.js` (Mannschaft mit Gruppe, Gruppenspiele, das `ko`-Objekt mit seinen vier festen Plätzen) und den tragenden Gedanken, nur Ergebnisse zu speichern und alles andere zu rechnen. Ausführlicher behandelt werden die Ableitung der K.-o.-Paarungen samt Erkennung veralteter Paarungen, das Elfmeterschießen, die automatische Phasenerkennung der Live-Anzeige, der Import von Dateien des Vorgängerprojekts sowie die Stolpersteine beim Entwickeln.
+
+![Datenfluss und Turnierbaum](doku-datenfluss.svg)
+
 ## Grenzen
 
 - Pro Gruppe wird **einfache Runde** gespielt (jeder gegen jeden einmal); Hin- und Rückrunde ist nicht vorgesehen
