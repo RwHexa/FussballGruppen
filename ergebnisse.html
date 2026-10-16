@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ergebnisse – Fussball Gruppen</title>
+  <meta name="theme-color" content="#e85a2a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/spiele.css">
+</head>
+<body data-page="ergebnisse">
+  <div class="page-shell">
+    <header class="app-header">
+      <div class="app-header__top">
+        <a class="app-header__brand" href="index.html">
+          <span aria-hidden="true">⚽</span>
+          <span>Fussball Gruppen</span>
+        </a>
+        <a class="link-start" href="index.html">← Startseite</a>
+      </div>
+      <nav class="main-nav" aria-label="Hauptmenü">
+        <a href="mannschaften.html" data-nav="mannschaften">Mannschaften</a>
+        <a href="spiele.html" data-nav="spiele">Gruppenspiele</a>
+        <a href="aktspiel.html" data-nav="aktspiel">Akt. Spiel</a>
+        <a href="tabellen.html" data-nav="tabellen">Tabellen</a>
+        <a href="ko.html" data-nav="ko">K.-o.-Runde</a>
+        <a href="ergebnisse.html" data-nav="ergebnisse">Ergebnisse</a>
+        <a href="aushang.html" data-nav="aushang">Aushang</a>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      <h1>Ergebnisse</h1>
+      <p class="lead">
+        Alle Partien des Turniers.
+        <a href="spiele.html">Gruppenspiele bearbeiten</a> ·
+        <a href="ko.html">K.-o.-Runde bearbeiten</a>
+      </p>
+
+      <div id="ergebnisse-keine-mannschaften" class="spiele-hinweis-box" hidden>
+        Noch keine Mannschaften angelegt.
+        <a href="mannschaften.html">Mannschaften erfassen</a>
+      </div>
+
+      <div id="ergebnisse-inhalt" hidden>
+        <section class="spiele-panel">
+          <h2><span class="gruppe-badge gruppe-badge--a">A</span> Gruppe A</h2>
+          <p class="spiele-meta">Anzahl Ergebnisse: <span id="ergebnisse-anzahl-a">0</span></p>
+          <div id="ergebnisse-empty-a" class="spiele-empty" hidden>
+            Noch keine Ergebnisse in Gruppe A.
+          </div>
+          <div class="spiele-liste-wrap">
+            <table class="spiele-tabelle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Heim</th>
+                  <th>Ergebnis</th>
+                  <th>Gast</th>
+                </tr>
+              </thead>
+              <tbody id="ergebnisse-body-a"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="spiele-panel">
+          <h2><span class="gruppe-badge gruppe-badge--b">B</span> Gruppe B</h2>
+          <p class="spiele-meta">Anzahl Ergebnisse: <span id="ergebnisse-anzahl-b">0</span></p>
+          <div id="ergebnisse-empty-b" class="spiele-empty" hidden>
+            Noch keine Ergebnisse in Gruppe B.
+          </div>
+          <div class="spiele-liste-wrap">
+            <table class="spiele-tabelle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Heim</th>
+                  <th>Ergebnis</th>
+                  <th>Gast</th>
+                </tr>
+              </thead>
+              <tbody id="ergebnisse-body-b"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="spiele-panel">
+          <h2>🥇 K.-o.-Runde</h2>
+          <div id="ergebnisse-ko-empty" class="spiele-empty" hidden>
+            Noch kein K.-o.-Spiel entschieden.
+          </div>
+          <div class="spiele-liste-wrap">
+            <table class="spiele-tabelle">
+              <thead>
+                <tr>
+                  <th>Spiel</th>
+                  <th>Heim</th>
+                  <th>Ergebnis</th>
+                  <th>Gast</th>
+                </tr>
+              </thead>
+              <tbody id="ergebnisse-ko-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/turnier-store.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/ergebnisse.js"></script>
+</body>
+</html>

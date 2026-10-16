@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mannschaften – Fussball Gruppen</title>
+  <meta name="theme-color" content="#e85a2a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/mannschaften.css">
+</head>
+<body data-page="mannschaften">
+  <div class="page-shell">
+    <header class="app-header">
+      <div class="app-header__top">
+        <a class="app-header__brand" href="index.html">
+          <span aria-hidden="true">⚽</span>
+          <span>Fussball Gruppen</span>
+        </a>
+        <a class="link-start" href="index.html">← Startseite</a>
+      </div>
+      <nav class="main-nav" aria-label="Hauptmenü">
+        <a href="mannschaften.html" data-nav="mannschaften">Mannschaften</a>
+        <a href="spiele.html" data-nav="spiele">Gruppenspiele</a>
+        <a href="aktspiel.html" data-nav="aktspiel">Akt. Spiel</a>
+        <a href="tabellen.html" data-nav="tabellen">Tabellen</a>
+        <a href="ko.html" data-nav="ko">K.-o.-Runde</a>
+        <a href="ergebnisse.html" data-nav="ergebnisse">Ergebnisse</a>
+        <a href="aushang.html" data-nav="aushang">Aushang</a>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      <h1>Mannschaften</h1>
+      <p class="lead">
+        Teams erfassen und auf die Gruppen <strong>A</strong> und <strong>B</strong> verteilen.
+        In jeder Gruppe spielt jeder gegen jeden, die beiden Besten jeder Gruppe erreichen das Halbfinale.
+      </p>
+
+      <div class="mannschaften-panel">
+        <p id="mannschaften-message" class="form-message" role="status"></p>
+        <p data-rolle="transfer-message" class="form-message" role="status"></p>
+
+        <form id="form-mannschaft-neu" class="mannschaften-toolbar">
+          <label for="mannschaft-name-neu">
+            Neue Mannschaft
+            <input
+              id="mannschaft-name-neu"
+              type="text"
+              name="name"
+              placeholder="z. B. FC Musterstadt"
+              maxlength="80"
+              autocomplete="off"
+              required
+            >
+          </label>
+          <label for="mannschaft-gruppe-neu" class="label-gruppe">
+            Gruppe
+            <select id="mannschaft-gruppe-neu">
+              <option value="A">A</option>
+              <option value="B">B</option>
+            </select>
+          </label>
+          <button type="submit" class="btn-primary">Hinzufügen</button>
+        </form>
+
+        <div class="mannschaften-meta">
+          <p class="mannschaften-count">
+            Anzahl Mannschaften: <span id="mannschaften-anzahl">0</span>
+            <span class="mannschaften-count__gruppen">
+              (Gruppe A: <span id="mannschaften-anzahl-a">0</span> ·
+              Gruppe B: <span id="mannschaften-anzahl-b">0</span>)
+            </span>
+          </p>
+        </div>
+
+        <p class="mannschaften-hinweis">
+          Namen und Gruppe können nachträglich geändert werden. Beim Wechsel der Gruppe
+          entfallen die bisherigen Gruppenspiele dieser Mannschaft.
+        </p>
+
+        <div id="mannschaften-empty" class="mannschaften-empty" hidden>
+          Noch keine Mannschaften eingetragen. Oben einen Namen hinzufügen.
+        </div>
+
+        <div id="mannschaften-gruppen" class="mannschaften-gruppen" hidden>
+          <section class="gruppe-block" data-gruppe="A">
+            <h2 class="gruppe-block__titel"><span class="gruppe-badge gruppe-badge--a">A</span> Gruppe A</h2>
+            <ul id="mannschaften-liste-a" class="mannschaften-liste"></ul>
+            <p class="gruppe-block__leer" id="gruppe-leer-a" hidden>Noch keine Mannschaft in Gruppe A.</p>
+          </section>
+          <section class="gruppe-block" data-gruppe="B">
+            <h2 class="gruppe-block__titel"><span class="gruppe-badge gruppe-badge--b">B</span> Gruppe B</h2>
+            <ul id="mannschaften-liste-b" class="mannschaften-liste"></ul>
+            <p class="gruppe-block__leer" id="gruppe-leer-b" hidden>Noch keine Mannschaft in Gruppe B.</p>
+          </section>
+        </div>
+
+        <div class="mannschaften-actions-row">
+          <button type="button" id="btn-demo-laden" class="btn-secondary">
+            Demo-Mannschaften laden (2 × 4 Teams)
+          </button>
+          <button type="button" id="btn-gruppen-verteilen" class="btn-secondary">
+            ⇄ Gruppen gleichmäßig aufteilen
+          </button>
+          <button type="button" id="btn-alle-loeschen" class="btn-secondary">
+            Alle löschen
+          </button>
+          <button type="button" class="btn-secondary" data-aktion="export">
+            💾 Turnier sichern (.json)
+          </button>
+          <button type="button" class="btn-secondary" data-aktion="import">
+            📂 Turnier laden
+          </button>
+          <input type="file" accept="application/json,.json" data-rolle="import-datei" hidden>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/turnier-store.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/datentransfer.js"></script>
+  <script src="js/mannschaften.js"></script>
+</body>
+</html>

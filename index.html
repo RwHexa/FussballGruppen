@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fussball Gruppen – Start</title>
+  <meta name="theme-color" content="#e85a2a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/start.css">
+</head>
+<body>
+  <div class="start-page">
+    <div class="start-inner">
+      <figure class="poster-frame">
+        <img
+          src="assets/turnier-poster.jpg"
+          alt="Poster: Fussball Turnier – Fair Play. Teamgeist. Respekt."
+          width="394"
+          height="591"
+        >
+      </figure>
+
+      <p class="start-modus">
+        Zwei Gruppen <strong>A</strong> und <strong>B</strong> · Halbfinale · Finale
+      </p>
+
+      <nav class="start-menu" aria-label="Hauptmenü">
+        <h2 class="start-menu__title">Menü</h2>
+        <ul class="menu-grid">
+          <li>
+            <a class="menu-card" href="mannschaften.html">
+              <span class="menu-card__icon" aria-hidden="true">👥</span>
+              <span class="menu-card__label">Mannschaften</span>
+            </a>
+          </li>
+          <li>
+            <a class="menu-card" href="spiele.html">
+              <span class="menu-card__icon" aria-hidden="true">📅</span>
+              <span class="menu-card__label">Gruppenspiele</span>
+            </a>
+          </li>
+          <li>
+            <a class="menu-card" href="aktspiel.html">
+              <span class="menu-card__icon" aria-hidden="true">🔴</span>
+              <span class="menu-card__label">Akt. Spiel</span>
+            </a>
+          </li>
+          <li>
+            <a class="menu-card" href="tabellen.html">
+              <span class="menu-card__icon" aria-hidden="true">🏆</span>
+              <span class="menu-card__label">Tabellen A / B</span>
+            </a>
+          </li>
+          <li>
+            <a class="menu-card" href="ko.html">
+              <span class="menu-card__icon" aria-hidden="true">🥇</span>
+              <span class="menu-card__label">K.-o.-Runde</span>
+            </a>
+          </li>
+          <li>
+            <a class="menu-card" href="ergebnisse.html">
+              <span class="menu-card__icon" aria-hidden="true">⚽</span>
+              <span class="menu-card__label">Ergebnisse</span>
+            </a>
+          </li>
+          <li>
+            <a class="menu-card" href="aushang.html">
+              <span class="menu-card__icon" aria-hidden="true">📋</span>
+              <span class="menu-card__label">Aushang</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer class="start-footer">
+      <p id="start-titel" hidden></p>
+      <p id="start-datum">Samstag, 18. Juli 2030</p>
+      <p id="start-ort">Hauptstr. 123, 54321 Musterstadt</p>
+      <p id="start-sieger" class="start-sieger" hidden></p>
+    </footer>
+  </div>
+  <script src="js/turnier-store.js"></script>
+  <script src="js/start.js"></script>
+</body>
+</html>

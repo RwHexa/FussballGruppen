@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabellen A / B – Fussball Gruppen</title>
+  <meta name="theme-color" content="#e85a2a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/tabelle.css">
+</head>
+<body data-page="tabellen">
+  <div class="page-shell">
+    <header class="app-header">
+      <div class="app-header__top">
+        <a class="app-header__brand" href="index.html">
+          <span aria-hidden="true">⚽</span>
+          <span>Fussball Gruppen</span>
+        </a>
+        <a class="link-start" href="index.html">← Startseite</a>
+      </div>
+      <nav class="main-nav" aria-label="Hauptmenü">
+        <a href="mannschaften.html" data-nav="mannschaften">Mannschaften</a>
+        <a href="spiele.html" data-nav="spiele">Gruppenspiele</a>
+        <a href="aktspiel.html" data-nav="aktspiel">Akt. Spiel</a>
+        <a href="tabellen.html" data-nav="tabellen">Tabellen</a>
+        <a href="ko.html" data-nav="ko">K.-o.-Runde</a>
+        <a href="ergebnisse.html" data-nav="ergebnisse">Ergebnisse</a>
+        <a href="aushang.html" data-nav="aushang">Aushang</a>
+      </nav>
+    </header>
+
+    <main class="page-content page-content--tabelle">
+      <h1>Tabellen</h1>
+      <p class="lead">
+        Gruppe A und Gruppe B. Die beiden Besten jeder Gruppe erreichen das
+        <a href="ko.html">Halbfinale</a>.
+      </p>
+
+      <p id="tabellen-status" class="tabellen-status" role="status"></p>
+
+      <section class="tabelle-gruppe">
+        <h2 class="tabelle-gruppe__titel">
+          <span class="gruppe-badge gruppe-badge--a">A</span> Gruppe A
+        </h2>
+        <div class="tabelle-panel">
+          <div class="table-wrap">
+            <table class="tabelle">
+              <thead>
+                <tr>
+                  <th class="col-platz"><span class="th-lang">Platz</span><span class="th-kurz">Pl.</span></th>
+                  <th class="col-mannschaft">Mannschaft</th>
+                  <th class="col-sp"><span class="th-lang">Spiele</span><span class="th-kurz" title="Spiele">Sp</span></th>
+                  <th class="col-s"><span class="th-lang">Siege</span><span class="th-kurz" title="Siege">S</span></th>
+                  <th class="col-u"><span class="th-lang">Unentsch.</span><span class="th-kurz" title="Unentschieden">U</span></th>
+                  <th class="col-n"><span class="th-lang">Niederl.</span><span class="th-kurz" title="Niederlagen">N</span></th>
+                  <th class="col-tore">Tore</th>
+                  <th class="col-diff"><abbr title="Tordifferenz">Diff</abbr></th>
+                  <th class="col-punkte"><span class="th-lang">Punkte</span><span class="th-kurz" title="Punkte">Pkt</span></th>
+                </tr>
+              </thead>
+              <tbody id="tabelle-body-a"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="tabelle-gruppe">
+        <h2 class="tabelle-gruppe__titel">
+          <span class="gruppe-badge gruppe-badge--b">B</span> Gruppe B
+        </h2>
+        <div class="tabelle-panel">
+          <div class="table-wrap">
+            <table class="tabelle">
+              <thead>
+                <tr>
+                  <th class="col-platz"><span class="th-lang">Platz</span><span class="th-kurz">Pl.</span></th>
+                  <th class="col-mannschaft">Mannschaft</th>
+                  <th class="col-sp"><span class="th-lang">Spiele</span><span class="th-kurz" title="Spiele">Sp</span></th>
+                  <th class="col-s"><span class="th-lang">Siege</span><span class="th-kurz" title="Siege">S</span></th>
+                  <th class="col-u"><span class="th-lang">Unentsch.</span><span class="th-kurz" title="Unentschieden">U</span></th>
+                  <th class="col-n"><span class="th-lang">Niederl.</span><span class="th-kurz" title="Niederlagen">N</span></th>
+                  <th class="col-tore">Tore</th>
+                  <th class="col-diff"><abbr title="Tordifferenz">Diff</abbr></th>
+                  <th class="col-punkte"><span class="th-lang">Punkte</span><span class="th-kurz" title="Punkte">Pkt</span></th>
+                </tr>
+              </thead>
+              <tbody id="tabelle-body-b"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <p class="tabellen-legende">
+        <span class="legende-marke legende-marke--quali"></span> Platz 1 und 2: Halbfinale
+      </p>
+    </main>
+  </div>
+  <script src="js/turnier-store.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/tabelle.js"></script>
+</body>
+</html>

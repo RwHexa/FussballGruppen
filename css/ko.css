@@ -1,0 +1,304 @@
+/* K.-o.-Runde: Halbfinale, Spiel um Platz 3, Finale */
+
+.page-content--ko {
+  max-width: 900px;
+}
+
+.ko-status {
+  margin: 0 0 24px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: #fff8e6;
+  border: 1px solid #f0d878;
+  color: #7a5c00;
+}
+
+.ko-status:empty {
+  display: none;
+}
+
+.ko-status.is-fertig {
+  background: #f0fff4;
+  border-color: #c6f6d5;
+  color: #276749;
+}
+
+.ko-runde {
+  margin-bottom: 28px;
+}
+
+.ko-runde__titel {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+}
+
+.ko-karten {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 720px) {
+  .ko-karten {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ko-karte {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 5px solid var(--color-orange);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+}
+
+.ko-karte--finale {
+  border-left-color: #d4a017;
+  background: linear-gradient(180deg, #fffdf5 0%, #fff 60%);
+}
+
+.ko-karte--offen {
+  border-left-color: #c9c9c9;
+  background: #fafafa;
+}
+
+.ko-karte__titel {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.ko-karte__herkunft {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.ko-paarung {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.ko-paarung__team {
+  flex: 1;
+  min-width: 90px;
+}
+
+.ko-paarung__team:last-of-type {
+  text-align: right;
+}
+
+.ko-paarung__team.ist-sieger {
+  color: #276749;
+}
+
+.ko-paarung__team.ist-sieger::after {
+  content: " ✓";
+}
+
+.ko-paarung__trenner {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.ko-karte__hinweis {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.ko-karte__warnung {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  background: #fff0f0;
+  border: 1px solid #f0c0c0;
+  color: #922;
+}
+
+.ko-form {
+  display: grid;
+  gap: 12px;
+}
+
+.ko-form__tore,
+.ko-form__elfer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ko-form input[type="number"] {
+  font: inherit;
+  width: 70px;
+  padding: 10px 12px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  text-align: center;
+}
+
+.ko-form input[type="number"]:focus {
+  outline: 2px solid var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.ko-form__doppelpunkt {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.ko-form__elfer {
+  padding: 10px;
+  border-radius: 4px;
+  background: #f6f6f6;
+  border: 1px dashed #ccc;
+}
+
+.ko-form__elfer-label {
+  flex: 1 1 100%;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.ko-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ko-karte__stand {
+  margin: 12px 0 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* ---------- Endstand ---------- */
+
+.ko-endstand {
+  margin-bottom: 28px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.ko-endstand__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ko-endstand__zeile {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ko-endstand__zeile:last-child {
+  border-bottom: none;
+}
+
+.ko-endstand__platz {
+  min-width: 110px;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.ko-endstand__name {
+  font-weight: 700;
+}
+
+.ko-endstand__zeile:first-child .ko-endstand__name {
+  font-size: 1.15rem;
+  color: var(--color-orange-dark);
+}
+
+.ko-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Knöpfe und Meldungen wie auf den übrigen Seiten */
+
+.btn-primary {
+  font: inherit;
+  font-weight: 600;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: linear-gradient(145deg, var(--color-orange-light), var(--color-orange));
+  color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-secondary,
+.btn-ghost {
+  font: inherit;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fff;
+  color: var(--color-muted);
+}
+
+.btn-secondary:hover,
+.btn-ghost:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange-dark);
+}
+
+.form-message {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form-message.is-error {
+  display: block;
+  background: #fff0f0;
+  color: #922;
+  border: 1px solid #f0c0c0;
+}
+
+.form-message.is-ok {
+  display: block;
+  background: #f0fff4;
+  color: #276749;
+  border: 1px solid #c6f6d5;
+}
+
+/* ---------- Handy ---------- */
+
+@media (max-width: 768px) {
+  .ko-form__actions .btn-primary,
+  .ko-form__actions .btn-ghost {
+    flex: 1 1 100%;
+    min-height: 44px;
+  }
+
+  .ko-actions .btn-secondary {
+    flex: 1 1 100%;
+    min-height: 44px;
+  }
+}

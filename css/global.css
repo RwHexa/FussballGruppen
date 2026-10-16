@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-orange: #e85a2a;
+  --color-orange-dark: #c94a1f;
+  --color-orange-light: #ff7a4d;
+  --color-ink: #1a1a1a;
+  --color-muted: #5a5a5a;
+  --color-paper: #eceae6;
+  --font-ui: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --radius: 8px;
+}
+
+/* Das Attribut "hidden" muss staerker sein als die Layout-Regeln dieser
+   Seiten: eine Klasse mit display:flex/grid wuerde die Browser-Vorgabe
+   display:none sonst ueberstimmen und das Element bliebe sichtbar. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Handy ----------
+   Unter 16px zoomt iOS Safari beim Antippen eines Feldes automatisch hinein
+   und laesst die Seite verschoben zurueck. */
+
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    /* !important ist hier noetig: die Seiten-Stylesheets setzen "font: inherit"
+       mit hoeherer Spezifitaet (z. B. .mannschaften-toolbar input[type="text"])
+       und wuerden diese Regel sonst ueberschreiben. */
+    font-size: 16px !important;
+  }
+}
+
+/* ---------- Gruppen A / B ----------
+   Die Abzeichen stehen auf mehreren Seiten (Mannschaften, Spiele, Tabellen),
+   deshalb liegen sie hier und nicht in einem Seiten-Stylesheet. */
+
+:root {
+  --color-gruppe-a: #2f6fad;
+  --color-gruppe-b: #2f8f5b;
+  --color-quali: #d3fad3;
+}
+
+.gruppe-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1;
+  flex: none;
+}
+
+.gruppe-badge--a { background: var(--color-gruppe-a); }
+.gruppe-badge--b { background: var(--color-gruppe-b); }

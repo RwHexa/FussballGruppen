@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K.-o.-Runde – Fussball Gruppen</title>
+  <meta name="theme-color" content="#e85a2a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/ko.css">
+</head>
+<body data-page="ko">
+  <div class="page-shell">
+    <header class="app-header">
+      <div class="app-header__top">
+        <a class="app-header__brand" href="index.html">
+          <span aria-hidden="true">⚽</span>
+          <span>Fussball Gruppen</span>
+        </a>
+        <a class="link-start" href="index.html">← Startseite</a>
+      </div>
+      <nav class="main-nav" aria-label="Hauptmenü">
+        <a href="mannschaften.html" data-nav="mannschaften">Mannschaften</a>
+        <a href="spiele.html" data-nav="spiele">Gruppenspiele</a>
+        <a href="aktspiel.html" data-nav="aktspiel">Akt. Spiel</a>
+        <a href="tabellen.html" data-nav="tabellen">Tabellen</a>
+        <a href="ko.html" data-nav="ko">K.-o.-Runde</a>
+        <a href="ergebnisse.html" data-nav="ergebnisse">Ergebnisse</a>
+        <a href="aushang.html" data-nav="aushang">Aushang</a>
+      </nav>
+    </header>
+
+    <main class="page-content page-content--ko">
+      <h1>K.-o.-Runde</h1>
+      <p class="lead">
+        Halbfinale 1: <strong>1. Gruppe A</strong> gegen <strong>2. Gruppe B</strong> ·
+        Halbfinale 2: <strong>1. Gruppe B</strong> gegen <strong>2. Gruppe A</strong>.
+        Die Sieger spielen das Finale. Bei Gleichstand entscheidet das Elfmeterschießen.
+      </p>
+
+      <p id="ko-message" class="form-message" role="status"></p>
+      <p id="ko-status" class="ko-status" role="status"></p>
+
+      <section class="ko-runde">
+        <h2 class="ko-runde__titel">Halbfinale</h2>
+        <div class="ko-karten" id="ko-halbfinale"></div>
+      </section>
+
+      <section class="ko-runde">
+        <h2 class="ko-runde__titel">Finale &amp; Spiel um Platz 3</h2>
+        <div class="ko-karten" id="ko-finalrunde"></div>
+      </section>
+
+      <section class="ko-endstand" id="ko-endstand" hidden>
+        <h2 class="ko-runde__titel">Endstand</h2>
+        <ol class="ko-endstand__liste" id="ko-endstand-liste"></ol>
+      </section>
+
+      <div class="ko-actions">
+        <button type="button" id="btn-ko-reset" class="btn-secondary">
+          ↺ K.-o.-Ergebnisse löschen
+        </button>
+      </div>
+    </main>
+  </div>
+  <script src="js/turnier-store.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/ko.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gruppenspiele – Fussball Gruppen</title>
+  <meta name="theme-color" content="#e85a2a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/spiele.css">
+</head>
+<body data-page="spiele">
+  <div class="page-shell">
+    <header class="app-header">
+      <div class="app-header__top">
+        <a class="app-header__brand" href="index.html">
+          <span aria-hidden="true">⚽</span>
+          <span>Fussball Gruppen</span>
+        </a>
+        <a class="link-start" href="index.html">← Startseite</a>
+      </div>
+      <nav class="main-nav" aria-label="Hauptmenü">
+        <a href="mannschaften.html" data-nav="mannschaften">Mannschaften</a>
+        <a href="spiele.html" data-nav="spiele">Gruppenspiele</a>
+        <a href="aktspiel.html" data-nav="aktspiel">Akt. Spiel</a>
+        <a href="tabellen.html" data-nav="tabellen">Tabellen</a>
+        <a href="ko.html" data-nav="ko">K.-o.-Runde</a>
+        <a href="ergebnisse.html" data-nav="ergebnisse">Ergebnisse</a>
+        <a href="aushang.html" data-nav="aushang">Aushang</a>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      <h1>Gruppenspiele &amp; Ergebnisse</h1>
+      <p class="lead">
+        Begegnungen innerhalb einer Gruppe eintragen – die Gruppentabellen werden
+        automatisch berechnet. Halbfinale und Finale stehen auf der Seite
+        <a href="ko.html">K.-o.-Runde</a>.
+      </p>
+
+      <div id="spiele-keine-mannschaften" class="spiele-hinweis-box" hidden>
+        In mindestens einer Gruppe müssen <strong>zwei Mannschaften</strong> stehen.
+        <a href="mannschaften.html">Zur Mannschaftsverwaltung</a>
+      </div>
+
+      <div id="spiele-form-panel" class="spiele-panel" hidden>
+        <h2>Neues Spiel / Ergebnis</h2>
+        <p id="spiel-editing-hint" class="form-editing-hint" role="status"></p>
+        <p id="spiele-message" class="form-message" role="status"></p>
+
+        <form id="form-spiel" class="spiele-form">
+          <label for="spiel-gruppe">
+            Gruppe
+            <select id="spiel-gruppe">
+              <option value="A">Gruppe A</option>
+              <option value="B">Gruppe B</option>
+            </select>
+          </label>
+          <label for="spiel-heim">
+            Heimmannschaft
+            <select id="spiel-heim" required></select>
+          </label>
+          <label for="spiel-gast">
+            Gastmannschaft
+            <select id="spiel-gast" required></select>
+          </label>
+
+          <div class="spiele-form__ergebnis ergebnis-row">
+            <label for="spiel-tore-heim">
+              Tore Heim
+              <input id="spiel-tore-heim" type="number" min="0" max="99" step="1" required value="0">
+            </label>
+            <span class="ergebnis-separator" aria-hidden="true">:</span>
+            <label for="spiel-tore-gast">
+              Tore Gast
+              <input id="spiel-tore-gast" type="number" min="0" max="99" step="1" required value="0">
+            </label>
+          </div>
+
+          <div class="spiele-form__actions">
+            <button type="submit" id="btn-spiel-speichern" class="btn-primary">
+              Spiel / Ergebnis hinzufügen
+            </button>
+            <button type="button" id="btn-spiel-abbrechen" class="btn-ghost" hidden>
+              Bearbeitung abbrechen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <section id="offene-panel" class="spiele-panel" hidden>
+        <h2>Offene Begegnungen</h2>
+        <p class="spiele-meta">
+          Jeder gegen jeden – anklicken setzt die Paarung oben ins Formular.
+        </p>
+        <div class="offene-gruppen">
+          <div class="offene-gruppe">
+            <h3><span class="gruppe-badge gruppe-badge--a">A</span> Gruppe A</h3>
+            <ul id="offene-liste-a" class="offene-liste"></ul>
+            <p id="offene-leer-a" class="offene-fertig" hidden>Alle Spiele der Gruppe A sind gespielt.</p>
+          </div>
+          <div class="offene-gruppe">
+            <h3><span class="gruppe-badge gruppe-badge--b">B</span> Gruppe B</h3>
+            <ul id="offene-liste-b" class="offene-liste"></ul>
+            <p id="offene-leer-b" class="offene-fertig" hidden>Alle Spiele der Gruppe B sind gespielt.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="spiele-panel">
+        <h2>Eingetragene Gruppenspiele</h2>
+        <p class="spiele-meta">Anzahl Spiele: <span id="spiele-anzahl">0</span></p>
+        <div id="spiele-empty" class="spiele-empty" hidden>
+          Noch keine Gruppenspiele erfasst.
+        </div>
+        <div class="spiele-liste-wrap">
+          <table class="spiele-tabelle">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Gr.</th>
+                <th>Begegnung</th>
+                <th>Ergebnis</th>
+                <th>Aktionen</th>
+              </tr>
+            </thead>
+            <tbody id="spiele-liste-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/turnier-store.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/spiele.js"></script>
+</body>
+</html>

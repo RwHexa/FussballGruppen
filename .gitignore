@@ -1,0 +1,13 @@
+# Eigene Turnierdaten (Export aus der Anwendung)
+gruppen-*.json
+turnier-*.json
+
+# Gedruckte Aushaenge
+Aushang*.pdf
+
+# Zwischendateien
+_vorschau.html
+*_druck.html
+
+# Arbeitsumgebung (lokaler Entwicklungsserver)
+.claude/
